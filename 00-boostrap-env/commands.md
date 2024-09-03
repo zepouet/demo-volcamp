@@ -31,6 +31,22 @@ sdk use java 21.0.2-open
 
 # QUARKUS
 
+On IntelliJ with OpenJDK
+```
+[ ] ./mvnw package -Dnative 
+[x] ./mvnw package -Dnative -Dquarkus.native.container-build=true
+[ ] ./target/getting-start-1.0.0-SNAPSHOT-runner
+[x] docker run -it -v ./target/getting-start-1.0.0-SNAPSHOT-runner:/myexec ubuntu bash
+
+```
+In a shell with GraalCE
+```
+[x] ./mvnw package -Dnative 
+[x] ./target/getting-start-1.0.0-SNAPSHOT-runner
+```
+
+Compare the boot
+
 
 
 
