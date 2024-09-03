@@ -57,6 +57,10 @@ kubectl apply -f https://raw.githubusercontent.com/grafana/docker-otel-lgtm/main
 - login : admin
 - mdp : volcamp
 
+```
+kubectl port-forward --namespace otel svc/lgtm 4317:4317
+``̀
+
 ### Reste à faire
 
 - Déploiement appli standard
