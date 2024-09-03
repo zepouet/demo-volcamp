@@ -40,3 +40,13 @@ sudo k3s kubectl get node
 
 sudo cat /etc/rancher/k3s/k3s.yaml
 ```
+
+### cert-manager
+```
+helm upgrade cert-manager jetstack/cert-manager -n cert-manager --set installCRDs=true --install --create-namespace
+kubectl apply -f manifests/letsencrypt-prod.yaml
+```
+
+### Reste à faire
+
+- Déploiement appli standard
