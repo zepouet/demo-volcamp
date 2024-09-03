@@ -33,6 +33,8 @@ sdk use java 21.0.2-open
 
 On IntelliJ with OpenJDK
 ```
+sdk use java 21.0.2-open
+
 [ ] ./mvnw package -Dnative 
 [x] ./mvnw package -Dnative -Dquarkus.native.container-build=true
 [ ] ./target/getting-start-1.0.0-SNAPSHOT-runner
@@ -41,6 +43,8 @@ On IntelliJ with OpenJDK
 ```
 In a shell with GraalCE
 ```
+sdk use java 21.0.2-graalce
+
 [x] ./mvnw package -Dnative 
 [x] ./target/getting-start-1.0.0-SNAPSHOT-runner
 ```
