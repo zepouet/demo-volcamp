@@ -47,6 +47,16 @@ helm upgrade cert-manager jetstack/cert-manager -n cert-manager --set installCRD
 kubectl apply -f manifests/letsencrypt-prod.yaml
 ```
 
+### otel
+
+```
+kubectl apply -f https://raw.githubusercontent.com/grafana/docker-otel-lgtm/main/k8s/lgtm.yaml
+```
+
+- url : https://lgtm.volcamp.opsrel.io/
+- login : admin
+- mdp : volcamp
+
 ### Reste à faire
 
 - Déploiement appli standard
