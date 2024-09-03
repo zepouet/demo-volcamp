@@ -61,6 +61,10 @@ kubectl apply -f https://raw.githubusercontent.com/grafana/docker-otel-lgtm/main
 kubectl port-forward --namespace otel svc/lgtm 4317:4317
 ``̀
 
+### Helm
+
+Voir https://docs.quarkiverse.io/quarkus-helm/dev/index.html
+
 ### Reste à faire
 
 - Déploiement appli standard
