@@ -52,6 +52,12 @@ sdk use java 21.0.2-graalce
 Compare the boot
 
 
+## Links
 
-
-
+- https://github.com/lwitkowski/quarkus-grafana-dashboard
+- <quarkus.helm.name>monapp-quarkus</quarkus.helm.name>
+- ./mvnw clean package -Dquarkus.container-image.build=true -Dquarkus.container-image.push=false -Dquarkus.container-image.registry=foo -Dquarkus.container-image.group=XXX
+- https://docs.quarkiverse.io/quarkus-helm/dev/index.html#helm-expressions
+- https://docs.quarkiverse.io/quarkus-helm/dev/index.html#helm-profiles
+- http://quarkus.volcamp.opsrel.io/hello
+- https://quarkus.io/guides/config-reference
