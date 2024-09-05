@@ -1,0 +1,14 @@
+server:
+  ingress:
+    enabled: true
+    hostname: "argocd.volcamp.opsrel.io"
+    ingressClassName: traefik
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+    tls: true
+
+configs:
+  cm:
+    url: "https://argocd.volcamp.opsrel.io"
+  params:
+    server.insecure: true
