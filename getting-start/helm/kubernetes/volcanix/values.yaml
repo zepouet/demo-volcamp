@@ -1,0 +1,6 @@
+---
+app:
+  host: volcanix-remi.volcamp.opsrel.io
+  image: docker.io/rverchere/volcanix:1.0.2-SNAPSHOT
+  ports:
+    http: 8080

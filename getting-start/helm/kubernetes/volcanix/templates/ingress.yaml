@@ -1,0 +1,26 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    app.quarkus.io/quarkus-version: 3.14.1
+    app.quarkus.io/commit-id: ea16a255183a2b1b4dd674a8d47f13d9f33822fc
+    app.quarkus.io/vcs-uri: https://github.com/zepouet/demo-volcamp.git
+    app.quarkus.io/build-timestamp: 2024-09-05 - 20:02:22 +0000
+  labels:
+    app.kubernetes.io/name: volcanix
+    app.kubernetes.io/version: 1.0.2-SNAPSHOT
+    app.kubernetes.io/managed-by: quarkus
+  name: volcanix
+spec:
+  rules:
+    - host: {{ .Values.app.host }}
+      http:
+        paths:
+          - backend:
+              service:
+                name: volcanix
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
