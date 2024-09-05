@@ -13,12 +13,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <quarkus.helm.name>monapp-quarkus</quarkus.helm.name>
-    <quarkus.container-image.name>monapp-quarkus</quarkus.container-image.name>
-    <quarkus.container-image.group>rverchere</quarkus.container-image.group>
-    <quarkus.container-image.registry>docker.io</quarkus.container-image.registry>
-    <quarkus.container-image.build>true</quarkus.container-image.build>
-    <quarkus.container-image.push>true</quarkus.container-image.push>
   </properties>
 
   <dependencyManagement>
