@@ -1,0 +1,29 @@
+{
+  "$schema" : "https://json-schema.org/draft-07/schema#",
+  "properties" : {
+    "app" : {
+      "type" : "object",
+      "properties" : {
+        "image" : {
+          "description" : "The container image to use.",
+          "type" : "string"
+        },
+        "host" : {
+          "description" : "The host under which the application is going to be exposed.",
+          "type" : "string"
+        },
+        "ports" : {
+          "type" : "object",
+          "properties" : {
+            "http" : {
+              "description" : "The http port to use for the probe.",
+              "type" : "integer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title" : "Values",
+  "type" : "object"
+}
