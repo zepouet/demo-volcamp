@@ -4,12 +4,12 @@ kind: Ingress
 metadata:
   annotations:
     app.quarkus.io/quarkus-version: 3.14.1
-    app.quarkus.io/commit-id: 3281b95575bf821dcd395f6537d7386f3bcb67ed
+    app.quarkus.io/commit-id: 05888df31ef7a0230d69457a3d4721bc04465de9
     app.quarkus.io/vcs-uri: https://github.com/zepouet/demo-volcamp.git
-    app.quarkus.io/build-timestamp: 2024-09-08 - 19:38:49 +0000
+    app.quarkus.io/build-timestamp: 2024-09-08 - 20:25:42 +0000
   labels:
     app.kubernetes.io/name: volcanix
-    app.kubernetes.io/version: 1.0.0-SNAPSHOT
+    app.kubernetes.io/version: 1.0.1-SNAPSHOT
     app.kubernetes.io/managed-by: quarkus
   name: volcanix
 spec:
