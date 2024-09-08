@@ -29,6 +29,11 @@
 
   <dependencies>
     <dependency>
+      <groupId>io.github.git-commit-id</groupId>
+      <artifactId>git-commit-id-maven-plugin</artifactId>
+      <version>9.0.1</version>
+    </dependency>
+    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-opentelemetry</artifactId>
     </dependency>
@@ -103,6 +108,29 @@
       </properties>
       <build>
         <plugins>
+          <plugin>
+            <groupId>io.github.git-commit-id</groupId>
+            <artifactId>git-commit-id-maven-plugin</artifactId>
+            <version>9.0.1</version>
+            <executions>
+              <execution>
+                <id>get-the-git-infos</id>
+                <goals>
+                  <goal>revision</goal>
+                </goals>
+                <phase>initialize</phase>
+              </execution>
+            </executions>
+            <configuration>
+              <generateGitPropertiesFile>true</generateGitPropertiesFile>
+              <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+              <includeOnlyProperties>
+                <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+                <includeOnlyProperty>^git.commit.id.(abbrev|full)$</includeOnlyProperty>
+              </includeOnlyProperties>
+              <commitIdGenerationMode>full</commitIdGenerationMode>
+            </configuration>
+          </plugin>
           <plugin>
             <artifactId>maven-failsafe-plugin</artifactId>
             <version>${surefire-plugin.version}</version>

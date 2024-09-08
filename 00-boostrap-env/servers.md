@@ -47,6 +47,15 @@ helm upgrade cert-manager jetstack/cert-manager -n cert-manager --set installCRD
 kubectl apply -f manifests/letsencrypt-prod.yaml
 ```
 
+### ArgoCD
+
+https://argocd.volcamp.opsrel.io/
+Compte : admin
+Mot de passe dans le secret 
+```
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
+```
+
 ### otel
 
 ```
