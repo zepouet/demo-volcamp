@@ -31,11 +31,9 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package
-    
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v4
-      with:
-        directory: ./getting-start
+    - name: Build
+      run: ./mvnw -B package -Dquarkus.container-image.build=false
+    - name: Build Native
+      run: ./mvnw -B package -Dnative -Dquarkus.container-image.build=false
+    - name: Generate Container image
+      run: ./mvnw -B package -Dnative -Dquarkus.container-image.build=true
