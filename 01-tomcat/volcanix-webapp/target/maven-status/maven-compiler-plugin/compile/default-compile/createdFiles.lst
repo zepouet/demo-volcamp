@@ -1,3 +1,5 @@
+com/volcanix/ImageServlet.class
+com/volcanix/utils/DbHaricotBean.class
 com/volcanix/utils/InsertCats.class
 com/volcanix/HelloServlet.class
 com/volcanix/AdminServlet.class

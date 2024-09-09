@@ -9,6 +9,7 @@ services:
       - ./webapps:/usr/local/tomcat/webapps  # Montez vos applications JSP dans Tomcat
     environment:
       - POSTGRES_HOST=postgres
+    command: ["/bin/sh", "-c", "rm -rf /usr/local/tomcat/work/Catalina/localhost && catalina.sh run"]
 
   adminer:
     image: adminer
