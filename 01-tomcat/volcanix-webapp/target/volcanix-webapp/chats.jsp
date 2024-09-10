@@ -30,7 +30,7 @@
     <br/>
 
     <% if (chats != null && !chats.isEmpty()) { %>
-        <table border="1">
+        <table border="1" class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
                     <th>id</th>
@@ -47,7 +47,7 @@
                         <td><%= chat.get("id") %></td>
                         <td><%= chat.get("nom") %></td>
                         <td><%= chat.get("date_naissance") %></td>
-                        <td><img src="imageServlet?id=<%= chat.get("id") %>" alt="photo" width="100"/></td>
+                        <td><img src="imageServlet?filename=<%= chat.get("id") %>" alt="photo" width="100"/></td>
                     </tr>
                 <%
                     }
