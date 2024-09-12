@@ -72,6 +72,15 @@ sdk use java 21.0.2-open
 A-t-on besoin dans notre cas de GraalVM ? Non car on déploie sous Linux notre prod et donc OpenJDK suffit et grace à Quarkus
 on peut utiliser GraalVM AMD64 dans Linux xHyve pour faire une image x86
 
+Différence de taille d'image jvm/natif:
+
+```
+❯ docker images
+REPOSITORY                                          TAG                     IMAGE ID       CREATED          SIZE
+rverchere/volcanix                                  1.0.1-SNAPSHOT-NATIVE   f2e825ff9bc1   20 seconds ago   165MB
+rverchere/volcanix                                  1.0.1-SNAPSHOT          04d73ad8fb55   17 minutes ago   457MB
+````
+
 ## Configuration
 
 Utilisation du `.env`, par ex :
