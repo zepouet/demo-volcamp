@@ -1,1 +1,4 @@
 - Compilation sur Mac : puce Mx, mais sur les clusters AMD
+- Besoin d'un dépot de chart http/oci : pas la peine, on fait du GitOps (ArgoCD)
+- Listing des IDEs : https://quarkus.io/guides/ide-tooling
+- Faire des GitHub Actions avec Quarkus : https://docs.quarkiverse.io/quarkus-github-action/dev/index.html
