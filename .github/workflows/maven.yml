@@ -21,7 +21,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./getting-start
+        working-directory: ./02-quarkus
 
     steps:
     - uses: actions/checkout@v4
