@@ -51,7 +51,7 @@ sdk use java 21.0.2-graalce
 
 In a shell with OpenJDK
 ```
-# L'activiation du OpenKJDK permet d'utiliser classiquement la JVM mais aussi de compiler des images amd64'
+# L'activation du OpenKJDK permet d'utiliser classiquement la JVM mais aussi de compiler des images amd64'
 sdk use java 21.0.2-open
 
 [ ] ./mvnw clean package -Dnative
