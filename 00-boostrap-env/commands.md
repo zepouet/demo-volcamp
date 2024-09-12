@@ -72,6 +72,14 @@ sdk use java 21.0.2-open
 A-t-on besoin dans notre cas de GraalVM ? Non car on déploie sous Linux notre prod et donc OpenJDK suffit et grace à Quarkus
 on peut utiliser GraalVM AMD64 dans Linux xHyve pour faire une image x86
 
+## Configuration
+
+Utilisation du `.env`, par ex :
+
+```.env
+quarkus.kubernetes.ingress.host=volcanix-remi.volcamp.opsrel.io
+quarkus.container-image.group=rverchere
+```
 
 ## Links
 

@@ -1,6 +1,6 @@
 ---
 app:
-  host: quarkus.volcamp.opsrel.io
-  image: docker.io/zepouet/volcanix:1.0.1-SNAPSHOT
+  host: volcanix-remi.volcamp.opsrel.io
+  image: docker.io/rverchere/volcanix:1.0.1-SNAPSHOT-NATIVE
   ports:
     http: 8080
