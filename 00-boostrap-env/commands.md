@@ -32,10 +32,10 @@ sdk use java 21.0.2-open
 # QUARKUS
 
 
-```
 In a shell with GraalCE
+
 ```
-# L'activiation du GraalCE permet de compiler des binaires pour MAC 
+# L'activation du GraalCE permet de compiler des binaires pour MAC
 sdk use java 21.0.2-graalce
 
 [x] ./mvnw clean package -Dnative => build native image for MacOS
@@ -67,6 +67,7 @@ sdk use java 21.0.2-open
         uname -a
         ./xxx
         Fait tourner le binaire aarch64 en mode rosetta2
+```
 
 A-t-on besoin dans notre cas de GraalVM ? Non car on déploie sous Linux notre prod et donc OpenJDK suffit et grace à Quarkus
 on peut utiliser GraalVM AMD64 dans Linux xHyve pour faire une image x86
