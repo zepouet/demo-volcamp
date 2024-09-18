@@ -33,8 +33,11 @@ https://charith.xyz/docker/accessing-tomcat-manager-of-an-app-deployed-on-docker
 
 ## k3s
 
+- Activation du TLS pour accéder de l'extérieur
+- FeatureGate InPlacePodVerticalScaling
+
 ```
-curl -sfL https://get.k3s.io |  INSTALL_K3S_EXEC="--tls-san volcamp.opsrel.io" sh -s -
+curl -sfL https://get.k3s.io |  INSTALL_K3S_EXEC="--tls-san volcamp.opsrel.io --kube-apiserver-arg feature-gates=InPlacePodVerticalScaling=true" sh -s -
 # Check for Ready node, takes ~30 seconds 
 sudo k3s kubectl get node
 
