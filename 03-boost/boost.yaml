@@ -13,8 +13,9 @@ spec:
   resourcePolicy:
     containerPolicies:
     - containerName: stress
-      percentageIncrease:
-        value: 200
+      fixedResources:
+       requests: "1"
+       limits: "2"
   durationPolicy:
     fixedDuration:
       unit: Seconds
