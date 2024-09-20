@@ -13,7 +13,6 @@ jobs:
         os: [macos-latest]
     steps:
       - uses: actions/checkout@v4
-
       - uses: graalvm/setup-graalvm@v1
         with:
           java-version: '21'      # See 'Options' section below for all supported versions
@@ -28,6 +27,7 @@ jobs:
         env:
           NO_DOCKER: true
       - name: pwd
+        run: pwd
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
