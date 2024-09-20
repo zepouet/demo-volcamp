@@ -27,12 +27,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
+    - uses: graalvm/setup-graalvm@v1
       with:
         java-version: '21'
-        distribution: 'graalvm'
-        cache: maven
+        distribution: 'mandrel'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        cache: 'maven'
 
     - name: Generate Container image
       run: "./mvnw -B clean package -Dnative -DskipTests -Dquarkus.native.container-build=false"
