@@ -2,7 +2,7 @@ name: GraalVM Native Image builds
 on:
   push:
     paths:
-      - .github/workflows/graalvm-macos.yaml
+      - .github/workflows/graalvm.yaml
 jobs:
   build:
     name: HelloWorld on ${{ matrix.os }}
@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [windows-latest]
     steps:
       - uses: actions/checkout@v4
       - uses: graalvm/setup-graalvm@v1
