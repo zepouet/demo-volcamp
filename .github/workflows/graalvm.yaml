@@ -30,5 +30,5 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v3
         with:
-          name: /target/qute-quickstart-1.0.1-SNAPSHOT-native-image-source-jar/qute-quickstart-1.0.1-SNAPSHOT-runner
-          path: qute-quickstart-1.0.1-SNAPSHOT-runner
+          name: qute-quickstart-1.0.1-SNAPSHOT-runner
+          path: /target/qute-quickstart-1.0.1-SNAPSHOT-native-image-source-jar/qute-quickstart-1.0.1-SNAPSHOT-runner
