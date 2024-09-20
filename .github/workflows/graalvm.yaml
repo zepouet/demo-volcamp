@@ -7,16 +7,14 @@ jobs:
     strategy:
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
-        # os: [macos-14, windows-2022, ubuntu-20.04]
     steps:
       - uses: actions/checkout@v4
 
       - uses: graalvm/setup-graalvm@v1
         with:
-          java-version: '21'
-          distribution: 'graalvm'
+          java-version: '21'      # See 'Options' section below for all supported versions
+          distribution: 'graalvm' # See 'Options' section below for all available distributions
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          native-image-job-reports: 'true'
       - run: java -version
       - name: Generate binary
         run: |
