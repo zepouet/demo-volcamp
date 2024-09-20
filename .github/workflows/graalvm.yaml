@@ -20,4 +20,6 @@ jobs:
         run: |
           cd 02-quarkus
           ./mvnw -B clean package -Dnative -DskipTests -Dquarkus.native.container-build=false
+        env:
+          NO_DOCKER: true
 
