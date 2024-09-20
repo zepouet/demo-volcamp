@@ -67,7 +67,7 @@ kubectl apply -f https://raw.githubusercontent.com/grafana/docker-otel-lgtm/main
 
 - url : https://lgtm.volcamp.opsrel.io/
 - login : admin
-- mdp : volcamp
+- mdp : changeme
 
 ```
 kubectl port-forward --namespace otel svc/lgtm 4317:4317
