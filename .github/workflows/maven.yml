@@ -20,9 +20,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [linux/amd64, linux/aarch64]
     
     defaults:
       run:
@@ -35,7 +32,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: 'graalvm'
+        distribution: 'temurin'
         cache: maven
     - name: Generate Container image
-      run: "./mvnw -B clean package -Dnative -Dquarkus.native.container-build=true -Dquarkus.docker.buildx.platform=${{ matrix.platform }}"
+      run: "./mvnw -B clean package -Dnative -Dquarkus.native.container-build=true"

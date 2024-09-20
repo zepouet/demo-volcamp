@@ -18,8 +18,8 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: progrium/stress
-        args: ["--cpu", "1"]
+        image: zepouet/volcanix:1.0.1-SNAPSHOT
+        #args: ["--cpu", "1"]
         resources:
           limits:
             cpu: 500m
