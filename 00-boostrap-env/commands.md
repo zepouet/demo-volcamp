@@ -32,63 +32,52 @@ sdk use java 21.0.2-open
 # QUARKUS
 
 
-In a shell with GraalCE
-
+@@```
+In a shell with GraalCE or Mandrel
 ```
-# L'activation du GraalCE permet de compiler des binaires pour MAC
+# L'activation du GraalCE permet de compiler des binaires pour MAC 
 sdk use java 21.0.2-graalce
 
-[x] ./mvnw clean package -Dnative => build native image for MacOS
+[x] ./mvnw clean package -Dnative -DskipTests 
+     => build native image for MacOS
     ./target/getting-start-1.0.0-SNAPSHOT-runner ==> OK
-[x] ./mvnw clean package -Dnative -Dquarkus.native.container-build=true => build native aarch64 binary and the image
-     docker run -it --platform linux/aarch64 -v $PWD/target/qute-quickstart-1.0.1-SNAPSHOT-runner:/xxx ubuntu ==> good
-     docker run -it --platform linux/amd64 -v $PWD/target/qute-quickstart-1.0.1-SNAPSHOT-runner:/xxx ubuntu ==> error
-     N'a pas de sens car on demande à docker en mode rosetta
-     Fournit une image aarch64
-[ ] ./mvnw clean package -Dnative -Dquarkus.native.container-build=true -Dquarkus.docker.buildx.platform=linux/amd64
-    Idem que précédemment N'a pas de sens car on demande à docker en mode rosetta 
+[x] ./mvnw clean package -Dnative -Dquarkus.native.container-build=true 
+     => build native linux/amr64 binary and the image
+     [x] docker run -it --platform linux/arm64 -v $PWD/target/qute-quickstart-1.0.1-SNAPSHOT-runner:/binary ubuntu
+         uname -a
+         /binary 
+     [ ] docker run -it --platform linux/amd64 -v $PWD/target/qute-quickstart-1.0.1-SNAPSHOT-runner:/binary ubuntu
+     N'a pas de sens car on demande à docker en mode rosetta de faire tourner un aarch64 dans x86. Seul l'inverse est possible 
+[ ] ./mvnw clean package -DskipTests -Dnative -Dquarkus.native.container-build=true -Dquarkus.docker.buildx.platform=linux/amd64
+    [x] docker run -it --platform linux/aarch64 -v $PWD/target/qute-quickstart-1.0.1-SNAPSHOT-runner:/xxx ubuntu
+    [ ] docker run -it --platform linux/amd64 -v $PWD/target/qute-quickstart-1.0.1-SNAPSHOT-runner:/xxx ubuntu
+    N'a pas de sens car on demande à docker en mode rosetta de faire tourner un aarch64 dans x86. Seul l'inverse est possible
 ```
 
 In a shell with OpenJDK
 ```
-# L'activation du OpenKJDK permet d'utiliser classiquement la JVM mais aussi de compiler des images amd64'
+# L'activiation du OpenKJDK permet d'utiliser classiquement la JVM mais aussi de compiler des images amd64'
 sdk use java 21.0.2-open
 
-[ ] ./mvnw clean package -Dnative
+[ ] ./mvnw clean package -Dnative -DskipTests
     Echec direct car pas possible de compiler sans GraalVM
-[x] ./mvnw clean package -Dnative -Dquarkus.native.container-build=true
-    Utilise une image GraalVM AMD64 dans Docker puis enchaine sur Dockerfile.native
-    En sortie on a une image AMD64
-    [ ] ./target/getting-start-1.0.0-SNAPSHOT-runner ==> Error 
-    [ ] docker run --platform linux/amd64 -it -v ./target/getting-start-1.0.1-SNAPSHOT-runner:/xxx ubuntu bash
-        N'a pas de sens car on demande l'activation de Rosetta dans un env Linux
-    [x] docker run  -it -v ./target/qute-quickstart-1.0.1-SNAPSHOT-runner:/xxx ubuntu uname -a
-        docker run --platform linux/aarch64 -it -v ./target/qute-quickstart-1.0.1-SNAPSHOT-runner:/xxx ubuntu bash
+[x] ./mvnw clean package -DskipTests -Dnative -Dquarkus.native.container-build=true -Dquarkus.docker.buildx.platform=linux/arm64 -Dquarkus.container-image.build=true 
+    Utilise une image GraalVM ARM64 dans Docker puis enchaine sur Dockerfile.native    
+    En sortie on a un binaire linux/arm64        
+    [ ] ./target/qute-quickstart-1.0.1-SNAPSHOT-runner
+        vi ./target/qute-quickstart-1.0.1-SNAPSHOT-runner ==> binaire linux/aarch64
+    [ ] docker run --platform linux/amd64 -it -v ./target/qute-quickstart-1.0.1-SNAPSHOT-runner:/binary centos bash
+        Ne peut pas marcher car binaire linux/aarch64 et non pas amd64
+    [x] docker run --platform linux/aarch64 -it -v ./target/qute-quickstart-1.0.1-SNAPSHOT-runner:/binary ubuntu bash
         uname -a
-        ./xxx
-        Fait tourner le binaire aarch64 en mode rosetta2
-```
-
+        ./xxx        
+[x] ./mvnw clean package -DskipTests -Dquarkus.docker.buildx.platform=linux/amd64 -Dquarkus.container-image.build=true 
+    [x] docker run --platform linux/amd64 -it -v ./target/qute-quickstart-1.0.1-SNAPSHOT-runner:/binary centos bash
+    [ ] docker run --platform linux/arm64 -it -v ./target/qute-quickstart-1.0.1-SNAPSHOT-runner:/binary ubuntu bash
+        
 A-t-on besoin dans notre cas de GraalVM ? Non car on déploie sous Linux notre prod et donc OpenJDK suffit et grace à Quarkus
 on peut utiliser GraalVM AMD64 dans Linux xHyve pour faire une image x86
 
-Différence de taille d'image jvm/natif:
-
-```
-❯ docker images
-REPOSITORY                                          TAG                     IMAGE ID       CREATED          SIZE
-rverchere/volcanix                                  1.0.1-SNAPSHOT-NATIVE   f2e825ff9bc1   20 seconds ago   165MB
-rverchere/volcanix                                  1.0.1-SNAPSHOT          04d73ad8fb55   17 minutes ago   457MB
-````
-
-## Configuration
-
-Utilisation du `.env`, par ex :
-
-```.env
-quarkus.kubernetes.ingress.host=volcanix-remi.volcamp.opsrel.io
-quarkus.container-image.group=rverchere
-```
 
 ## Links
 

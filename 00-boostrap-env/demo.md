@@ -1,0 +1,1 @@
+./mvnw clean package -Dquarkus.container-image.group=zepouet -Dquarkus.helm.name=volcanix -DskipTests -Dquarkus.helm.output-directory=../helm -Dnative
