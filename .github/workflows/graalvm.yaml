@@ -18,4 +18,6 @@ jobs:
           native-image-job-reports: 'true'
 
       - name: Generate Container image
-        run: "./mvnw -B clean package -Dnative"
+        run: |
+          cd 02-quarkus
+          ./mvnw -B clean package -Dnative
