@@ -32,4 +32,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: qute
-          path: 02-quarkus/target/qute-*
+          path: 02-quarkus/target/qute-quickstart-1.0.1-SNAPSHOT-runner
