@@ -6,8 +6,8 @@ on:
 jobs:
   build:
     name: HelloWorld on ${{ matrix.os }}
-    runs-on: self-hosted
-    #runs-on: ${{ matrix.os }}
+    #runs-on: self-hosted
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [macos-latest]
@@ -19,15 +19,12 @@ jobs:
           distribution: 'graalvm' # See 'Options' section below for all available distributions
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - run: java -version
-      - run: uname -a
       - name: Generate binary
         run: |
           cd 02-quarkus
           ./mvnw -B clean package -Dnative -DskipTests
         env:
           NO_DOCKER: true
-      - name: pwd
-        run: pwd
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
