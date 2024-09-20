@@ -33,11 +33,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v3
+    #- name: Set up QEMU
+    #  uses: docker/setup-qemu-action@v3
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v3
+    #- name: Set up Docker Buildx
+    #  uses: docker/setup-buildx-action@v3
+
+    - name: Install aarch64 libs
+      run: "sudo apt-get install -yq gcc make gcc-aarch64-linux-gnu binutils-aarch64-linux-gnu"
 
     - name: Set up JDK 21
       uses: actions/setup-java@v4
