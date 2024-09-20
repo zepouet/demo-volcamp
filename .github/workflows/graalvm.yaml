@@ -1,5 +1,8 @@
 name: GraalVM Native Image builds
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - .github/workflows/graalvm.yaml
 jobs:
   build:
     name: HelloWorld on ${{ matrix.os }}
