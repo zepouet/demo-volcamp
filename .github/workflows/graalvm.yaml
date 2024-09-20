@@ -16,10 +16,15 @@ jobs:
           distribution: 'graalvm' # See 'Options' section below for all available distributions
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - run: java -version
+      - run: uname -a
       - name: Generate binary
         run: |
           cd 02-quarkus
-          ./mvnw -B clean package -Dnative -DskipTests -Dquarkus.native.container-build=false
+          ./mvnw -B clean package -Dnative -DskipTests
         env:
           NO_DOCKER: true
-
+      - name: Upload binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: /target/qute-quickstart-1.0.1-SNAPSHOT-native-image-source-jar/qute-quickstart-1.0.1-SNAPSHOT-runner
+          path: qute-quickstart-1.0.1-SNAPSHOT-runner
