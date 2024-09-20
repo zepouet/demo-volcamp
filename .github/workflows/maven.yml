@@ -8,16 +8,14 @@
 
 name: Java CI with Maven
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [linux/amd64, linux/aarch64]
+    
     defaults:
       run:
         shell: bash
@@ -29,11 +27,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: 'temurin'
+        distribution: 'graalvm'
         cache: maven
-    - name: Build
-      run: ./mvnw -B package -Dquarkus.container-image.build=false
-    - name: Build Native
-      run: ./mvnw -B package -Dnative -Dquarkus.container-image.build=false
     - name: Generate Container image
-      run: ./mvnw -B package -Dnative -Dquarkus.container-image.build=true
+      run: "./mvnw -B clean package -Dnative -Dquarkus.native.container-build=true -Dquarkus.docker.buildx.platform=${{ matrix.platform }}"
