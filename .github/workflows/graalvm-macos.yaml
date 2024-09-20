@@ -2,7 +2,7 @@ name: GraalVM Native Image builds
 on:
   push:
     paths:
-      - .github/workflows/graalvm.yaml
+      - .github/workflows/graalvm-macos.yaml
 jobs:
   build:
     name: HelloWorld on ${{ matrix.os }}
@@ -27,8 +27,9 @@ jobs:
           ./mvnw -B clean package -Dnative -DskipTests
         env:
           NO_DOCKER: true
+      - name: pwd
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
           name: qute-quickstart-1.0.1-SNAPSHOT-runner
-          path: target/qute-quickstart-1.0.1-SNAPSHOT-runner
+          path:  /Users/nicolas/projects/actions-runner/_work/demo-volcamp/demo-volcamp/02-quarkus/target/qute-quickstart-1.0.1-SNAPSHOT-native-image-source-jar/qute-quickstart-1.0.1-SNAPSHOT-runner
