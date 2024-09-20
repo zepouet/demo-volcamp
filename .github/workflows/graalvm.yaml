@@ -28,7 +28,7 @@ jobs:
         env:
           NO_DOCKER: true
       - name: Upload binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: qute-quickstart-1.0.1-SNAPSHOT-runner
-          path: /target/qute-quickstart-1.0.1-SNAPSHOT-native-image-source-jar/qute-quickstart-1.0.1-SNAPSHOT-runner
+          path: target/qute-quickstart-1.0.1-SNAPSHOT-native-image-source-jar/qute-quickstart-1.0.1-SNAPSHOT-runner
