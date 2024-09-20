@@ -19,7 +19,7 @@ jobs:
       - name: Generate binary
         run: |
           cd 02-quarkus
-          ./mvnw -B clean package -Dnative -DskipTests -Dquarkus.native.container-build=false
+          ./mvnw -B clean package -Dnative -DskipTests -Dquarkus.native.container-build=false -Dquarkus.devservices.enabled=false
         env:
           NO_DOCKER: true
 
