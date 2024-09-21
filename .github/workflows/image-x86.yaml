@@ -41,3 +41,8 @@ jobs:
                     -Dquarkus.container-image.username=${{ github.actor }} \
                     -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} \
                     -Dquarkus.container-image.registry=${{ env.REGISTRY }}
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Update k8s resources"
