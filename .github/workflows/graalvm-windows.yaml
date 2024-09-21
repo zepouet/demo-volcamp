@@ -1,4 +1,4 @@
-name: windows family GraalVM Native Image builds
+name: Windows family - GraalVM Native Image builds
 on:
   push:
     paths:
@@ -33,5 +33,5 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
-          name: qute
-          path: 02-quarkus\target\qute-quickstart-1.0.1-SNAPSHOT-runner
+          name: volcanix-exe
+          path: 02-quarkus\target\qute-quickstart-1.0.1-SNAPSHOT-native-image-source-jar\qute-quickstart-1.0.1-SNAPSHOT-runner.exe

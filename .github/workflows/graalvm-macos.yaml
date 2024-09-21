@@ -1,4 +1,4 @@
-name: Darwin family GraalVM Native Image builds
+name: OSX family - GraalVM Native Image builds
 on:
   push:
     paths:
@@ -34,5 +34,5 @@ jobs:
       - name: Upload binary
         uses: actions/upload-artifact@v4
         with:
-          name: qute
+          name: volcanix-osx
           path: 02-quarkus/target/qute-quickstart-1.0.1-SNAPSHOT-runner
