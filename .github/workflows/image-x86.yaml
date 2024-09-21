@@ -32,6 +32,6 @@ jobs:
                     -Dquarkus.docker.buildx.platform=linux/amd64 \
                     -Dquarkus.container-image.build=true \
                     -Dquarkus.container-image.push=true \                    
-                    -Dquarkus.container-image.username= ${{ github.actor }} \
-                    -Dquarkus.container-image.password: ${{ secrets.GITHUB_TOKEN }} \
-                    -Dquarkus.container-imager.registry: gcr.io
+                    -Dquarkus.container-image.username=${{ github.actor }} \
+                    -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} \
+                    -Dquarkus.container-imager.registry=gcr.io
