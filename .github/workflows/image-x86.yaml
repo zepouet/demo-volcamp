@@ -31,7 +31,7 @@ jobs:
           ./mvnw clean package -DskipTests \
                     -Dquarkus.docker.buildx.platform=linux/amd64 \
                     -Dquarkus.container-image.build=true \
-                    -Dquarkus.container-image.push=false \                
+                    -Dquarkus.container-image.push=false \
                     -Dquarkus.container-image.username=${{ github.actor }} \
                     -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} \
                     -Dquarkus.container-imager.registry=gcr.io
