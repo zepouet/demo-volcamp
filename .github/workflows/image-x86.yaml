@@ -40,4 +40,4 @@ jobs:
                     -Dquarkus.container-image=${{ env.IMAGE_NAME }} \
                     -Dquarkus.container-image.username=${{ github.actor }} \
                     -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} \
-                    -Dquarkus.container-imager.registry=${{ env.REGISTRY }}
+                    -Dquarkus.container-image.registry=${{ env.REGISTRY }}
