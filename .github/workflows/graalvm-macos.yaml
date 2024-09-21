@@ -1,4 +1,4 @@
-name: [Darwin family] GraalVM Native Image builds
+name: Darwin family GraalVM Native Image builds
 on:
   push:
     paths:
