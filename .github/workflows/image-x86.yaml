@@ -15,8 +15,10 @@ jobs:
     #runs-on: self-hosted
     runs-on: ${{ matrix.os }}
     permissions:
-      packages: write
       contents: read
+      packages: write
+      attestations: write
+      id-token: write
     strategy:
       matrix:
         os: [ubuntu-latest]
