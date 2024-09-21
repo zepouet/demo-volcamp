@@ -2,7 +2,7 @@ name: GraalVM Native Image builds
 on:
   push:
     paths:
-      - .github/workflows/graalvm-macos.yaml
+      - .github/workflows/graalvm-windows.yaml
 jobs:
   build:
     name: HelloWorld on ${{ matrix.os }}
@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [windows-latest]
     steps:
       - uses: actions/checkout@v4
       - uses: graalvm/setup-graalvm@v1
@@ -21,7 +21,6 @@ jobs:
           distribution: 'mandrel' # See 'Options' section below for all available distributions
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - run: java -version
-      - run: uname -a
       - name: Generate binary
         run: |
           cd 02-quarkus
@@ -32,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: qute
-          path: 02-quarkus/target/qute-quickstart-1.0.1-SNAPSHOT-runner
+          path: 02-quarkus\target\qute-quickstart-1.0.1-SNAPSHOT-runner
