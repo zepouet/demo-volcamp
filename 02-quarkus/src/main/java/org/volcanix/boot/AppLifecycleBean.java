@@ -17,6 +17,7 @@ public class AppLifecycleBean {
         LOGGER.info("The application is starting...");
         LOGGER.info("The application is starting...");
         LOGGER.info("The application is starting...");
+        CpuBoost.perform();
     }
 
     void onStop(@Observes ShutdownEvent ev) {
