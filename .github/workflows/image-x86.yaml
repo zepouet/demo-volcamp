@@ -28,7 +28,7 @@ jobs:
       - name: Build Container image
         run: |
           cd 02-quarkus
-          ./mvnw -B -ntp clean package -DskipTests \
+          ./mvnw clean package -DskipTests \
                     -Dquarkus.docker.buildx.platform=linux/amd64 \
                     -Dquarkus.container-image.build=true \
                     -Dquarkus.container-image.push=false \                    
