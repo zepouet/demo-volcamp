@@ -14,10 +14,11 @@ public class AppLifecycleBean {
 
     void onStart(@Observes StartupEvent ev) {
         LOGGER.info("The application is starting...");
-        LOGGER.info("The application is starting...");
-        LOGGER.info("The application is starting...");
-        LOGGER.info("The application is starting...");
-        CpuBoost.perform();
+        try {
+            CpuBoost.perform();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     void onStop(@Observes ShutdownEvent ev) {
