@@ -1,6 +1,6 @@
 ---
 app:
   host: volcanix.volcamp.opsrel.io
-  image: docker.io/zepouet/volcanix:1.0.1-SNAPSHOT
+  image: docker.io/nicolas/volcanix:1.0.1-SNAPSHOT
   ports:
     http: 8080

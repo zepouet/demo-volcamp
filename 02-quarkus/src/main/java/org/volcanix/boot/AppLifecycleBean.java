@@ -14,6 +14,9 @@ public class AppLifecycleBean {
 
     void onStart(@Observes StartupEvent ev) {
         LOGGER.info("The application is starting...");
+        LOGGER.info("The application is starting...");
+        LOGGER.info("The application is starting...");
+        LOGGER.info("The application is starting...");
     }
 
     void onStop(@Observes ShutdownEvent ev) {
