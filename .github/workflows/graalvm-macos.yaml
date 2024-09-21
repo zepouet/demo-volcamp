@@ -1,8 +1,11 @@
-name: GraalVM Native Image builds
+name: ${{ matrix.os }} GraalVM Native Image builds
 on:
   push:
     paths:
       - .github/workflows/graalvm-macos.yaml
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-macos
+  cancel-in-progress: true
 jobs:
   build:
     name: HelloWorld on ${{ matrix.os }}
