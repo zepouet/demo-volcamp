@@ -33,7 +33,7 @@ jobs:
       - name: Build Container image
         run: |
           cd 02-quarkus
-          ./mvnw clean package -DskipTests \
+          ./mvnw -B -ntp clean package -DskipTests \
                     -Dquarkus.docker.buildx.platform=linux/amd64 \
                     -Dquarkus.container-image.build=true \
                     -Dquarkus.container-image.push=true \
@@ -46,3 +46,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -am "Update k8s resources"
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
