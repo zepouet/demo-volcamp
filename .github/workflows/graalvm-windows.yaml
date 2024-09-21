@@ -1,4 +1,4 @@
-name: Windows family - GraalVM Native Image builds
+name: Windows family - GraalVM Native binary
 on:
   push:
     paths:

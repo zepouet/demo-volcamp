@@ -1,4 +1,4 @@
-name: OSX family - GraalVM Native Image builds
+name: OSX family - GraalVM Native binary
 on:
   push:
     paths:
