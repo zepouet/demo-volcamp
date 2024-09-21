@@ -28,7 +28,7 @@ jobs:
       - name: Generate binary
         run: |
           cd 02-quarkus
-          ./mvnw -B clean package -Dnative -DskipTests
+          ./mvnw -B -ntp clean package -Dnative -DskipTests
         env:
           NO_DOCKER: true
       - name: Upload binary

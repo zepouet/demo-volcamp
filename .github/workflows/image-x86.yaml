@@ -28,4 +28,5 @@ jobs:
           ./mvnw -B -ntp clean package -DskipTests \
                     -Dquarkus.docker.buildx.platform=linux/amd64 \
                     -Dquarkus.container-image.build=true \
-                    -Dquarkus.container-image.push=false
+                    -Dquarkus.container-image.push=true
+                    -Dquarkus.container-image.group=zepouet
