@@ -7,7 +7,7 @@ The following table lists the configurable parameters and their default values.
 | Parameter | Description | Default |
 |  ---  |  ---  |  ---  |
 | `app.host` | The host under which the application is going to be exposed. | volcanix.volcamp.opsrel.io |
-| `app.image` | The container image to use. | docker.io/nicolas/volcanix:1.0.1-SNAPSHOT |
+| `app.image` | The container image to use. | docker.io/zepouet/volcanix:1.0.1-SNAPSHOT |
 | `app.ports.http` | The http port to use for the probe. | 8080 |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`.
