@@ -45,7 +45,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -am "Update k8s resources"
+          git commit -am "Update k8s/Helm resources"
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
