@@ -4,9 +4,9 @@ kind: Service
 metadata:
   annotations:
     app.quarkus.io/quarkus-version: 3.14.1
-    app.quarkus.io/commit-id: 41dbf835b1b158a39f32be88b19cbbc3dc41e44b
+    app.quarkus.io/commit-id: 09fc703468a9f4f1fd94176cf40a62e8f9721f25
     app.quarkus.io/vcs-uri: https://github.com/zepouet/demo-volcamp.git
-    app.quarkus.io/build-timestamp: 2024-09-21 - 09:49:01 +0000
+    app.quarkus.io/build-timestamp: 2024-09-21 - 10:04:07 +0000
   labels:
     app.kubernetes.io/name: volcanix
     app.kubernetes.io/version: 1.0.1-SNAPSHOT
