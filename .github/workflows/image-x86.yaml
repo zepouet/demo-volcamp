@@ -11,6 +11,9 @@ jobs:
     name: HelloWorld on ${{ matrix.os }}
     #runs-on: self-hosted
     runs-on: ${{ matrix.os }}
+    permissions:
+      packages: write
+      contents: read
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -28,5 +31,9 @@ jobs:
           ./mvnw -B -ntp clean package -DskipTests \
                     -Dquarkus.docker.buildx.platform=linux/amd64 \
                     -Dquarkus.container-image.build=true \
-                    -Dquarkus.container-image.push=true
-                    -Dquarkus.container-image.group=zepouet
+                    -Dquarkus.container-image.push=true \
+                    -Dquarkus.container-image.group=zepouet \
+                    -Dquarkus.container-image.username= ${{ github.actor }} \
+                    -Dquarkus.container-image.password: ${{ secrets.GITHUB_TOKEN }} \
+                    -Dquarkus.container-imager.egistry: gcr.io
+        
