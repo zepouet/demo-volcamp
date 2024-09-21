@@ -6,6 +6,9 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-image-x86
   cancel-in-progress: true
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 jobs:
   build:
     name: HelloWorld on ${{ matrix.os }}
@@ -32,6 +35,7 @@ jobs:
                     -Dquarkus.docker.buildx.platform=linux/amd64 \
                     -Dquarkus.container-image.build=true \
                     -Dquarkus.container-image.push=true \
+                    -Dquarkus.container-image=${{ env.IMAGE_NAME })
                     -Dquarkus.container-image.username=${{ github.actor }} \
                     -Dquarkus.container-image.password=${{ secrets.GITHUB_TOKEN }} \
-                    -Dquarkus.container-imager.registry=gcr.io
+                    -Dquarkus.container-imager.registry=${{ env.REGISTRY }}
