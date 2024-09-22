@@ -9,7 +9,14 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/02-quarkus/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-volcanix/pom.xml" />
+        <option value="$PROJECT_DIR$/actuator-custom-db-health-indicator-master/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/spring-volcanix/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="22" project-jdk-type="JavaSDK">
