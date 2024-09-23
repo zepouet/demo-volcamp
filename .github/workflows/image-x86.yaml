@@ -3,8 +3,9 @@ on:
   push:
     paths:
       - .github/workflows/image-x86.yaml
+  workflow_dispatch:    
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}-image-x86
+  group: ${{ github.workflow }}-image-x86
   cancel-in-progress: true
 env:
   REGISTRY: ghcr.io
