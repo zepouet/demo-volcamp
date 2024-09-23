@@ -2,6 +2,7 @@ apiVersion: autoscaling.x-k8s.io/v1alpha1
 kind: StartupCPUBoost
 metadata:
   name: boost
+  namespace: remi
 selector:
   matchExpressions:
   - key: app.kubernetes.io/name
