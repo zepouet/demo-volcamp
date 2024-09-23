@@ -27,3 +27,4 @@ replay_pid*
 /01-tomcat/pg-data/
 /01-tomcat/webapps/
 
+.quarkus
