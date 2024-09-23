@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/02-quarkus/pom.xml" />
         <option value="$PROJECT_DIR$/spring-volcanix/pom.xml" />
         <option value="$PROJECT_DIR$/actuator-custom-db-health-indicator-master/pom.xml" />
+        <option value="$PROJECT_DIR$/03-actuator-health-indicator/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

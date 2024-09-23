@@ -15,8 +15,25 @@ public class AppLifecycleBean {
     void onStart(@Observes StartupEvent ev) {
         LOGGER.info("The application is starting...");
         try {
-            CpuBoost.perform();
-        } catch (InterruptedException e) {
+            // Taille des matrices (augmente la taille pour intensifier le calcul)
+            int matrixSize = 1000;
+
+            System.out.println("Génération des matrices...");
+            double[][] matrixA = CpuBoost.generateRandomMatrix(matrixSize);
+            double[][] matrixB = CpuBoost.generateRandomMatrix(matrixSize);
+
+            System.out.println("Multiplication des matrices...");
+            long startTime = System.currentTimeMillis();
+
+            // Effectue la multiplication des matrices
+            double[][] resultMatrix = CpuBoost.multiplyMatrices(matrixA, matrixB, matrixSize);
+
+            long endTime = System.currentTimeMillis();
+            System.out.println("Multiplication terminée en " + (endTime - startTime) + " ms");
+
+            // Affiche une valeur de la matrice résultat pour vérifier le calcul
+            System.out.println("Résultat [0][0] : " + resultMatrix[0][0]);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

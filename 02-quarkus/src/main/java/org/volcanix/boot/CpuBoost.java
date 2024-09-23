@@ -1,60 +1,43 @@
 package org.volcanix.boot;
 
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Random;
 
 public class CpuBoost {
 
-    public static void perform() throws InterruptedException {
-        // Récupérer le nombre de CPU alloués via Kubernetes (cgroups)
-        double allocatedCpu = getAllocatedCpu();
 
-        // Calculer une durée de calcul ajustée en fonction du CPU alloué
-        // Si plus de CPU est alloué, la durée est réduite
-        long targetTime = (long) (30_000 / allocatedCpu); // 30 secondes ajustées selon CPU
+    // Génère une matrice aléatoire de taille n x n
+    public static double[][] generateRandomMatrix(int n) {
+        Random random = new Random();
+        double[][] matrix = new double[n][n];
 
-        System.out.println("Allocated CPU: " + allocatedCpu);
-        System.out.println("Target time (ms): " + targetTime);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = random.nextDouble();
+            }
+        }
 
-        // Créer plusieurs threads pour maximiser l'utilisation du CPU
-        int numThreads = (int) Math.ceil(allocatedCpu);
-        Thread[] threads = new Thread[numThreads];
-        long startTime = System.currentTimeMillis();
+        return matrix;
+    }
 
-        for (int i = 0; i < numThreads; i++) {
-            threads[i] = new Thread(() -> {
-                while (System.currentTimeMillis() - startTime < targetTime) {
-                    // Calcul CPU intensif
-                    double value = Math.random();
-                    for (int j = 0; j < 10_000_000; j++) {
-                        value = Math.sin(value) * Math.cos(value);
-                    }
+    // Multiplie deux matrices A et B de taille n x n
+    public static double[][] multiplyMatrices(double[][] A, double[][] B, int n) {
+        double[][] result = new double[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                result[i][j] = 0;
+                for (int k = 0; k < n; k++) {
+                    result[i][j] += A[i][k] * B[k][j];
                 }
-            });
-            threads[i].start();
+            }
         }
 
-        // Attendre que tous les threads se terminent
-        for (Thread thread : threads) {
-            thread.join();
-        }
-
-        System.out.println("Calcul CPU intensif terminé !");
+        return result;
     }
 
-    // Méthode pour récupérer le CPU alloué à partir des cgroups sous Kubernetes
-    private static double getAllocatedCpu() {
-        String cpuQuotaPath = "/sys/fs/cgroup/cpu/cpu.cfs_quota_us";
-        String cpuPeriodPath = "/sys/fs/cgroup/cpu/cpu.cfs_period_us";
-
-        try {
-            int quota = Integer.parseInt(Files.readAllLines(Paths.get(cpuQuotaPath)).get(0));
-            int period = Integer.parseInt(Files.readAllLines(Paths.get(cpuPeriodPath)).get(0));
-            return (double) quota / period;
-        } catch (IOException | NumberFormatException e) {
-            System.err.println("Erreur lors de la lecture des cgroups : " + e.getMessage());
-            return Runtime.getRuntime().availableProcessors(); // Par défaut, utilise les processeurs visibles
-        }
-    }
 }
