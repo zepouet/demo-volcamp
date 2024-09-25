@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: curl
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: curl
+              image: busybox:1.36
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c", "curl http://volcanix/hello-metrics"]
+          restartPolicy: OnFailure
