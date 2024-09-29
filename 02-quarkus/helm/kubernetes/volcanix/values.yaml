@@ -1,6 +1,6 @@
 ---
 app:
-  host: volcanix.volcamp.opsrel.io
-  image: ghcr.io/zepouet/demo-volcamp/volcanix:1.0.1-SNAPSHOT
+  host: volcanix-remi.volcamp.opsrel.io
+  image: docker.io/rverchere/volcanix:1.0.1-SNAPSHOT
   ports:
     http: 8080

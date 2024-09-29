@@ -4,9 +4,9 @@ kind: Deployment
 metadata:
   annotations:
     app.quarkus.io/quarkus-version: 3.14.1
-    app.quarkus.io/commit-id: 345b22dec370ef431c2add0d86a22122bad95e2b
+    app.quarkus.io/commit-id: bf39542eadd1fed973586f2e2c1613a57c88e7fd
     app.quarkus.io/vcs-uri: https://github.com/zepouet/demo-volcamp.git
-    app.quarkus.io/build-timestamp: 2024-09-25 - 20:22:19 +0000
+    app.quarkus.io/build-timestamp: 2024-09-29 - 20:10:02 +0000
   labels:
     app.kubernetes.io/name: volcanix
     app.kubernetes.io/version: 1.0.1-SNAPSHOT
@@ -16,19 +16,19 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: volcanix
       app.kubernetes.io/version: 1.0.1-SNAPSHOT
+      app.kubernetes.io/name: volcanix
   template:
     metadata:
       annotations:
         app.quarkus.io/quarkus-version: 3.14.1
-        app.quarkus.io/commit-id: 345b22dec370ef431c2add0d86a22122bad95e2b
+        app.quarkus.io/commit-id: bf39542eadd1fed973586f2e2c1613a57c88e7fd
         app.quarkus.io/vcs-uri: https://github.com/zepouet/demo-volcamp.git
-        app.quarkus.io/build-timestamp: 2024-09-25 - 20:22:19 +0000
+        app.quarkus.io/build-timestamp: 2024-09-29 - 20:10:02 +0000
       labels:
         app.kubernetes.io/managed-by: quarkus
-        app.kubernetes.io/name: volcanix
         app.kubernetes.io/version: 1.0.1-SNAPSHOT
+        app.kubernetes.io/name: volcanix
     spec:
       containers:
         - env:
