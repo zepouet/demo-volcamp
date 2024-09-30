@@ -77,6 +77,12 @@
       <artifactId>sshd-scp</artifactId>
       <version>2.13.1</version>
     </dependency>
+    <dependency>
+      <groupId>io.quarkiverse.playwright</groupId>
+      <artifactId>quarkus-playwright</artifactId>
+      <version>1.0.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>

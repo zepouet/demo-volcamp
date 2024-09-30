@@ -16,7 +16,7 @@ public class ItemsResourceTest {
                 .when().get("/items")
                 .then()
                 .statusCode(200)
-                .body(containsString("Apple:"), containsString("<del>30</del> <strong>27.0</strong>"));
+                .body(containsString("Appsssle:"), containsString("<del>30</del> <strong>27.0</strong>"));
     }
 
 }

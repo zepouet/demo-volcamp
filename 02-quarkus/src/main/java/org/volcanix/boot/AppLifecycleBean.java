@@ -11,7 +11,7 @@ import org.jboss.logging.Logger;
 public class AppLifecycleBean {
 
     private static final Logger LOGGER = Logger.getLogger("ListenerBean");
-
+/*
     void onStart(@Observes StartupEvent ev) {
         LOGGER.info("The application is starting...");
         try {
@@ -36,7 +36,7 @@ public class AppLifecycleBean {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
 
     void onStop(@Observes ShutdownEvent ev) {
         LOGGER.info("The application is stopping...");

@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/0x-demo/graalvm-native-image-spring-petclinic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/0x-demo/quarkus-petclinic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/0x-demo/serverless-production-readiness-java-gcp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/0x-demo/spring-framework-petclinic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/0x-demo/spring-petclinic" vcs="Git" />
   </component>
 </project>

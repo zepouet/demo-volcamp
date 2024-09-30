@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mycli" />
         <module name="qute-quickstart" />
         <module name="03-actuator-health-indicator" />
       </profile>
@@ -17,6 +18,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="03-actuator-health-indicator" options="-parameters" />
+      <module name="mycli" options="-parameters" />
       <module name="qute-quickstart" options="-parameters" />
       <module name="spring-volcanix" options="-parameters" />
     </option>

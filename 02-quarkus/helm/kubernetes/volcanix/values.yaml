@@ -1,6 +1,11 @@
 ---
 app:
+<<<<<<< HEAD
   host: volcanix-remi.volcamp.opsrel.io
   image: docker.io/rverchere/volcanix:1.0.1-SNAPSHOT
+=======
+  host: volcanix.volcamp.opsrel.io
+  image: docker.io/nicolas/volcanix:1.0.1-SNAPSHOT
+>>>>>>> 955601e (feat: add cli)
   ports:
     http: 8080
