@@ -12,7 +12,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 jobs:
   build:
-    name: HelloWorld on ${{ matrix.os }}
+    name: Build Image x86 on ${{ matrix.os }}
     #runs-on: self-hosted
     runs-on: ${{ matrix.os }}
     permissions:
