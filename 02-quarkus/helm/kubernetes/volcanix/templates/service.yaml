@@ -1,0 +1,24 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.quarkus.io/quarkus-version: 3.14.1
+    app.quarkus.io/commit-id: 8349810b63f64a7cdba3d1600c59ac6b505bc82c
+    app.quarkus.io/vcs-uri: https://github.com/zepouet/demo-volcamp.git
+    app.quarkus.io/build-timestamp: 2024-10-03 - 16:28:14 +0000
+  labels:
+    app.kubernetes.io/name: volcanix
+    app.kubernetes.io/version: 1.0.1-SNAPSHOT
+    app.kubernetes.io/managed-by: quarkus
+  name: volcanix
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: {{ .Values.app.ports.http }}
+  selector:
+    app.kubernetes.io/name: volcanix
+    app.kubernetes.io/version: 1.0.1-SNAPSHOT
+  type: ClusterIP
